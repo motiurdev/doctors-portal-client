@@ -7,13 +7,13 @@ initializeFirebase()
 
 const useFirebase = () => {
     const [user, setUser] = useState({})
-    const auth = getAuth();
     const [isLoading, setIsLoading] = useState(true)
     const [authError, setAuthError] = useState("")
-    const googleProvider = new GoogleAuthProvider();
     const [admin, setAdmin] = useState(false)
     const [token, setToken] = useState("")
 
+    const auth = getAuth();
+    const googleProvider = new GoogleAuthProvider();
 
     const registerUser = (email, name, password, history) => {
         setIsLoading(true)

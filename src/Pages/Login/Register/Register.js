@@ -26,6 +26,7 @@ const Register = () => {
         e.preventDefault()
         if (loginData.password !== loginData.password2) {
             alert("Your password don't match")
+            return;
         }
         registerUser(loginData.email, loginData.name, loginData.password, history)
 

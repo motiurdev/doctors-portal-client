@@ -21,7 +21,7 @@ const style = {
 };
 
 const BookingModal = ({ modal, modalClose, booking, date, setBookingSuccess }) => {
-    const { name, time } = booking;
+    const { name, time, price } = booking;
     const { user } = useAuth()
     const initailInfo = { patientName: user.displayName, email: user.email, phone: "" }
     const [bookingInfo, setBookingInfo] = useState(initailInfo)
@@ -40,10 +40,11 @@ const BookingModal = ({ modal, modalClose, booking, date, setBookingSuccess }) =
         const appointment = {
             ...bookingInfo,
             time,
+            price,
             serviceName: name,
             date: date.toLocaleDateString()
         }
-
+        // send to the server
         fetch('https://mighty-ridge-85117.herokuapp.com/appointments', {
             method: 'POST',
             headers: {
@@ -58,7 +59,7 @@ const BookingModal = ({ modal, modalClose, booking, date, setBookingSuccess }) =
                     modalClose()
                 }
             })
-        // send to the server
+
 
     }
     return (

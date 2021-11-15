@@ -4,6 +4,7 @@ import useAuth from '../../../hooks/useAuth';
 
 const MakeAdmin = () => {
     const [email, setEmail] = useState("")
+    console.log("email", email);
     const [success, setSuccess] = useState(false)
     const { token } = useAuth()
 
@@ -24,7 +25,6 @@ const MakeAdmin = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount) {
-                    console.log(data);
                     setSuccess(true)
                 }
             })
