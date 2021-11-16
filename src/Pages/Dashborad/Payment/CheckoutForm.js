@@ -16,7 +16,7 @@ const CheckoutForm = ({ appointment }) => {
     const [clientSecret, setClientSecret] = useState("");
 
     useEffect(() => {
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://mighty-ridge-85117.herokuapp.com/create-payment-intent", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ price }),
@@ -80,7 +80,7 @@ const CheckoutForm = ({ appointment }) => {
                 last4: paymentMethod.card.last4,
                 transaction: paymentIntent.client_secret.slice("_secret")[0]
             }
-            const url = `http://localhost:5000/appointments/${_id}`
+            const url = `https://mighty-ridge-85117.herokuapp.com/appointments/${_id}`
             fetch(url, {
                 method: "PUT",
                 headers: {

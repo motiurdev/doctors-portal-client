@@ -1,6 +1,6 @@
 import { Button, Container, Grid, TextField, Typography, Alert } from '@mui/material';
 import React, { useState } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import loginImg from "../../../images/login.png"
 import CircularProgress from '@mui/material/CircularProgress';
@@ -12,7 +12,7 @@ const Register = () => {
     const { user, registerUser, isLoading, authError } = useAuth()
 
 
-    const history = useHistory()
+    const navigate = useNavigate()
 
     const handleOnBlur = (e) => {
         const field = e.target.name;
@@ -28,7 +28,7 @@ const Register = () => {
             alert("Your password don't match")
             return;
         }
-        registerUser(loginData.email, loginData.name, loginData.password, history)
+        registerUser(loginData.email, loginData.name, loginData.password, navigate)
 
 
     }
